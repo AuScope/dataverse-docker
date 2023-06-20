@@ -18,8 +18,8 @@ services:
         - "POSTGRES_PASSWORD"
         - "POSTGRES_PORT"
       volumes:
-        - ./database-data:/var/lib/postgresql/data/ # persist data even if container shuts down
-        - ./triggers:/triggers
+        - ${LOCAL_STORAGE}/database-data:/var/lib/postgresql/data/ # persist data even if container shuts down
+        - ${LOCAL_STORAGE}/triggers:/triggers
 
     solr:
       networks:
@@ -36,7 +36,7 @@ services:
         - "SOLR_OPTS=-Dlog4j2.formatMsgNoLookups=true"
       volumes:
         - solr-data:/opt/solr/server/solr/collection1/data
-        - ./config/schema.xml:/var/solr/data/collection1/conf/schema.xml
+        - ${LOCAL_STORAGE}/config/schema.xml:/var/solr/data/collection1/conf/schema.xml
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.solr.rule=Host(`solr.${traefikhost}`)"
@@ -50,7 +50,7 @@ services:
       networks:
         - traefik
       volumes:
-        - ./minio-data:/data
+        - ${LOCAL_STORAGE}/minio-data:/data
       command:
         - server
         - /data
@@ -93,6 +93,7 @@ services:
         - "doi_provider"
         - "doi_username"
         - "doi_password"
+        - "doi_shoulder"
         - "dataciterestapiurlstring"
         - "baseurlstring"
         - "aws_bucket_name"
@@ -147,12 +148,14 @@ services:
         - postgres
         - solr
       volumes:
-        - ./secrets:/secrets
-        - ./data:/data
-        - ./docroot:/opt/docroot
-        - ./init.d:/opt/payara/init.d
-        - ./triggers:/opt/payara/triggers
-        - ./config/schema.xml:/opt/payara/dvinstall/schema.xml
+        - ${LOCAL_STORAGE}/secrets:/secrets
+        - ${LOCAL_STORAGE}/data:/data
+        - ${LOCAL_STORAGE}/docroot:/opt/docroot
+        - ${LOCAL_STORAGE}/init.d:/opt/payara/init.d
+        - ${LOCAL_STORAGE}/triggers:/opt/payara/triggers
+        - ${LOCAL_STORAGE}/config/schema.xml:/opt/payara/dvinstall/schema.xml
+        - ${LOCAL_STORAGE}/config/schemas:/schemas
+        - ${LOCAL_STORAGE}/config/auth:/auth
       #  - dataverse-data:/usr/local/payara5/glassfish/domains/domain1/autodeploy
       labels:
         - "traefik.enable=true"

@@ -7,6 +7,12 @@ if [ "${CLARIN}" ]; then
     custommetadatablock=True
 fi
 
+# Install Anu's metadata
+curl http://localhost:8080/api/admin/datasetfield/load -H "Content-type: text/tab-separated-values" -X POST --upload-file /schemas/citation.tsv
+curl http://localhost:8080/api/admin/datasetfield/load -H "Content-type: text/tab-separated-values" -X POST --upload-file /schemas/custom_igsn.tsv
+curl http://localhost:8080/api/admin/datasetfield/load -H "Content-type: text/tab-separated-values" -X POST --upload-file /schemas/geospatial.tsv
+custommetadatablock=True
+
 if [ "${CESSDA}" ]; then
     wget https://gdcc.github.io/dataverse-external-vocab-support/scripts/skosmos.js -O /tmp/skosmos.js
 #    wget https://raw.githubusercontent.com/ekoi/speeltuin/master/resources/CMM_Custom_MetadataBlock.tsv -O /tmp/CMM_Custom_MetadataBlock.tsv
