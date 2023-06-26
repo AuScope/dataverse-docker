@@ -13,6 +13,9 @@ curl http://localhost:8080/api/admin/datasetfield/load -H "Content-type: text/ta
 curl http://localhost:8080/api/admin/datasetfield/load -H "Content-type: text/tab-separated-values" -X POST --upload-file /schemas/geospatial.tsv
 custommetadatablock=True
 
+# Install Anu's property files
+cp /schemas/*.properties /opt/payara/appserver/glassfish/domains/domain1/applications/dataverse/WEB-INF/classes/propertyFiles
+
 if [ "${CESSDA}" ]; then
     wget https://gdcc.github.io/dataverse-external-vocab-support/scripts/skosmos.js -O /tmp/skosmos.js
 #    wget https://raw.githubusercontent.com/ekoi/speeltuin/master/resources/CMM_Custom_MetadataBlock.tsv -O /tmp/CMM_Custom_MetadataBlock.tsv
