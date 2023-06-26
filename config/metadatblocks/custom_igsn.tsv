@@ -1,0 +1,53 @@
+#metadataBlock	name	dataverseAlias	displayName												
+	custom_igsn	IGSN	IGSN Vocabularies												
+#datasetField	name	title	description	watermark	 fieldType	displayOrder	displayFormat	advancedSearchField	allowControlledVocabulary	allowmultiples	facetable	displayoncreate	required	parent	metadatablock_id
+	specimenType	Specimen Type	The type of the Physical Sample.		text	0		TRUE	TRUE	FALSE	TRUE	TRUE	TRUE		custom_igsn
+	mediumType	Medium Type	"The physical medium of a specimen, reference material, or sampled environment."		text	1		TRUE	TRUE	TRUE	TRUE	TRUE	TRUE		custom_igsn
+#controlledVocabulary	DatasetField	Value	identifier	displayOrder											
+	specimenType	Core		0											
+	specimenType	Core Catcher  		1											
+	specimenType	Core Half Round 		2											
+	specimenType	Core Piece 		3											
+	specimenType	Core Quarter Round		4											
+	specimenType	Core Section		5											
+	specimenType	Core Section Half		6											
+	specimenType	Core Slab  		7											
+	specimenType	Core Sub-Piece 		8											
+	specimenType	Core U-Channel  		9											
+	specimenType	Core Whole Round		10											
+	specimenType	CTD 		11											
+	specimenType	Cuttings		12											
+	specimenType	Dredge		13											
+	specimenType	Experimental Specimen 		14											
+	specimenType	Grab 		15											
+	specimenType	Hole 		16											
+	specimenType	Individual Sample 		17											
+	specimenType	Oriented Core 		18											
+	specimenType	Other 		19											
+	specimenType	Rock Powder 		20											
+	specimenType	Site 		21											
+	specimenType	Terrestrial Section		22											
+	specimenType	Polished Thin Section		23											
+	specimenType	Polished Section		24											
+	specimenType	Reverse Circulation (RC) Chips		25											
+	specimenType	Air Core (AC) Drilling Chips		26											
+	mediumType	Air	air	0											
+	mediumType	Equipment	equipment	1											
+	mediumType	Gas	gas	2											
+	mediumType	Habitat	habitat	3											
+	mediumType	Ice	ice	4											
+	mediumType	Liquid aqueous	liquidAqueous	5											
+	mediumType	Liquid organic	liquidOrganic	6											
+	mediumType	Mineral	mineral	7											
+	mediumType	Not applicable	notApplicable	8											
+	mediumType	Organism	organism	9											
+	mediumType	Other	other	10											
+	mediumType	Particulate	particulate	11											
+	mediumType	Regolith	regolith	12											
+	mediumType	Rock	rock	13											
+	mediumType	Sediment	sediment	14											
+	mediumType	Snow	snow	15											
+	mediumType	Soil	soil	16											
+	mediumType	Tissue	tissue	17											
+	mediumType	Unknown	unknown	18											
+	mediumType	Vegetation	vegetation	19											
