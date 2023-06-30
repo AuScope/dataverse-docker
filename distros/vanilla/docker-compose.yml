@@ -156,6 +156,7 @@ services:
         - ${LOCAL_STORAGE}/config/schema.xml:/opt/payara/dvinstall/schema.xml
         - ${LOCAL_STORAGE}/config/schemas:/schemas
         - ${LOCAL_STORAGE}/config/auth:/auth
+        - ${LOCAL_STORAGE}/config/custom-ui:/custom-ui
       #  - dataverse-data:/usr/local/payara5/glassfish/domains/domain1/autodeploy
       labels:
         - "traefik.enable=true"
